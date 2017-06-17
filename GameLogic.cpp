@@ -31,22 +31,24 @@ void GameLogic::Play(){
         }
 
         if(checkField() == 1){
+                playerOne++;
             if(Reset()){
                 whoWon = 1;
                 break;
             }
             clearScr();
             displayField();
-            std::cout << "Player 1 wins the round! Score is P1:" << ++playerOne << "-P2:" << playerTwo << std::endl;
+            std::cout << "Player 1 wins the round! Score is P1:" << playerOne << "-P2:" << playerTwo << std::endl;
         }
         else if(checkField() == 2){
+            playerTwo++;
             if(Reset()){
                 whoWon = 2;
                 break;
             }
             clearScr();
             displayField();
-            std::cout << "Player 2 wins the round! Score is P1:" << playerOne << "-P2:" << ++playerTwo << std::endl;
+            std::cout << "Player 2 wins the round! Score is P1:" << playerOne << "-P2:" << playerTwo << std::endl;
         }
         else if(checkField() == -1){
             Reset();
@@ -70,7 +72,7 @@ bool GameLogic::Reset(){
     field[2] = "1|2|3";
     occupied.clear();
 
-    if(playerOne == 2 || playerTwo == 2){
+    if(playerOne == 3 || playerTwo == 3){
         playerOne = 0;
         playerTwo = 0;
         return true;
