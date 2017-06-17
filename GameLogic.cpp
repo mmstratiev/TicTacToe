@@ -1,10 +1,13 @@
 #include "GameLogic.h"
+
 #include <iostream>
 #include <algorithm>
+
 void GameLogic::Play(){
     bool swapPlayers = true;
     int enteredNumber = -1;
     int whoWon;
+
 
     displayField();
     while(1){
