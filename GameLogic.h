@@ -7,28 +7,33 @@
 class GameLogic{
 private:
     //scores
-    int playerOne = 0;
-    int playerTwo = 0;
+    int playerOneScore = 0;
+    int playerTwoScore = 0;
+
+    int playerTurn = 1;
+
     std::vector<int> occupied;
+
     std::string field[3] = {"7|8|9", "4|5|6", "1|2|3"};
 
 public:
-//    int getScore() { return score; }
-  //  void setScore(int s) { score = s; }
-
     std::string* getField() { return field; }
 
-    //start the game
-    void Play();
+    std::vector<int>* getOccupied() { return &occupied; }
 
-    //reset the field and the scores if someone has a score of 3(meaning he wins)
+    int getPlayerOneScore() {return playerOneScore;}
+    int getPlayerTwoScore() {return playerTwoScore;}
+
+    //reset the field
     bool Reset();
 
-    int checkField();
+    int getPlayerTurn() { return playerTurn; }
+
+    void setPlayerTurn(int nextPlayerTurn) { playerTurn = nextPlayerTurn; }
+
+    int checkForWin();
 
     int changeField(int numberToChange, int player);
-
-    void clearScr();
 
     void displayField();
 };
